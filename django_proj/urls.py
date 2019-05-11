@@ -19,5 +19,5 @@ from app_samp01.views import AppView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('app_samp01', AppView.as_view()),
+    path('app_samp01/', AppView.as_view()),
 ]
