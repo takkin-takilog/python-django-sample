@@ -1,28 +1,23 @@
-from django.shortcuts import render
-from django.views.generic.base import View
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 
 
-class AppViewIdx(View):
+class AppViewIdx(TemplateView):
 
-    template_name = 'app_samp01/index.html'
+    #template_name = 'app_samp01/index.html'
 
-    myapp_data = {
-        'app': 'Index'
-    }
-
-    def get(self, request):
-        return render(request, self.template_name, self.myapp_data)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["app"] = "Index"
+        return context
 
 
-class AppViewPage01(View):
+class AppViewPage01(TemplateView):
 
-    template_name = 'app_samp01/page01.html'
+    #template_name = 'app_samp01/page01.html'
 
-    myapp_data = {
-        'app': 'Page01'
-    }
-
-    def get(self, request):
-        return render(request, self.template_name, self.myapp_data)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["app"] = "Page01"
+        return context
